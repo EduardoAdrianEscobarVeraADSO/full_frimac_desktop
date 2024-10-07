@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Viajes</title>
+    <link href="../output.css" rel="stylesheet">
+    <style>
+        #map {
+            height: 400px; /* Ajusta la altura del mapa */
+            width: 100%; /* Ancho del mapa */
+        }
+    </style>
+</head>
+
+<body class="pt-16 bg-gray-100"> <!-- Padding top to avoid overlap with the fixed header -->
+
+    <!-- Header -->
+    <header class="bg-orange-400 text-white p-4 fixed top-0 left-0 w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                <a href="#">Full Frimac ⛽</a>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:bg-orange-500 p-2 rounded">Inicio</a>
+                <a href="#" class="hover:bg-orange-500 p-2 rounded">Acerca de</a>
+                <a href="#" class="hover:bg-orange-500 p-2 rounded">Servicios</a>
+                <a href="#" class="hover:bg-orange-500 p-2 rounded">Contacto</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <nav id="mobile-menu" class="hidden md:hidden">
+            <a href="#" class="block py-2 px-4 text-white hover:bg-orange-500 rounded">Inicio</a>
+            <a href="#" class="block py-2 px-4 text-white hover:bg-orange-500 rounded">Acerca de</a>
+            <a href="#" class="block py-2 px-4 text-white hover:bg-orange-500 rounded">Servicios</a>
+            <a href="#" class="block py-2 px-4 text-white hover:bg-orange-500 rounded">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto p-4 mt-20">
+        <h1 class="text-3xl font-bold mb-6">Control de Viajes</h1>
+
+        <form class="max-w-md mx-auto bg-white p-6 rounded shadow-lg">
+            <h2 class="text-2xl font-semibold mb-4">Registrar Viaje</h2>
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="text" name="driver_name" id="driver_name"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-600 peer"
+                    placeholder=" " required />
+                <label for="driver_name"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-orange-600 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre del Conductor</label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="text" name="trip_start" id="trip_start"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-600 peer"
+                    placeholder=" " required />
+                <label for="trip_start"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-orange-600 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Inicio del Viaje</label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="number" name="expected_consumption" id="expected_consumption"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-600 peer"
+                    placeholder=" " required />
+                <label for="expected_consumption"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-orange-600 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Consumo Esperado (galones)</label>
+            </div>
+            <button type="button" id="start_trip_btn"
+                class="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">Abrir Viaje</button>
+            <button type="button" id="end_trip_btn"
+                class="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-4 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800 hidden">Cerrar Viaje</button>
+        </form>
+
+        <div id="map" class="mt-6"></div>
+
+        <div class="bg-white p-6 mt-6 rounded shadow-lg">
+            <h2 class="text-2xl font-semibold mb-4">Resultados del Viaje</h2>
+            <p id="trip_results" class="text-gray-700"></p>
+        </div>
+    </main>
+
+    <script>
+        // Google Maps API Initialization
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: { lat: -34.397, lng: 150.644 }, // Coordenadas iniciales (puedes cambiarlas)
+            });
+        }
+
+        // Logic to handle opening and closing trips
+        let tripActive = false;
+        let expectedConsumption = 0;
+
+        document.getElementById('start_trip_btn').addEventListener('click', function() {
+            const driverName = document.getElementById('driver_name').value;
+            const tripStart = document.getElementById('trip_start').value;
+            expectedConsumption = parseFloat(document.getElementById('expected_consumption').value);
+            
+            if (driverName && tripStart && expectedConsumption) {
+                tripActive = true;
+                document.getElementById('end_trip_btn').classList.remove('hidden');
+                document.getElementById('start_trip_btn').disabled = true;
+                alert(`Viaje iniciado por ${driverName} en ${tripStart}. Consumo esperado: ${expectedConsumption} galones.`);
+            }
+        });
+
+        document.getElementById('end_trip_btn').addEventListener('click', function() {
+            if (tripActive) {
+                const realConsumption = parseFloat(prompt("Ingrese el consumo real del viaje (galones):"));
+                if (!isNaN(realConsumption)) {
+                    const difference = realConsumption - expectedConsumption;
+                    const resultsText = `Consumo Real: ${realConsumption} galones. Consumo Esperado: ${expectedConsumption} galones. Diferencia: ${difference} galones.`;
+                    document.getElementById('trip_results').innerText = resultsText;
+                    tripActive = false;
+                    document.getElementById('end_trip_btn').classList.add('hidden');
+                    document.getElementById('start_trip_btn').disabled = false;
+                } else {
+                    alert("Por favor, ingrese un valor numérico válido para el consumo real.");
+                }
+            }
+        });
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=123456789&callback=initMap"></script>
+</body>
+
+</html>

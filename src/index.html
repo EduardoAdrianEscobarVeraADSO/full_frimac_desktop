@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Fixed Header</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body class="pt-16">
+
+    <!-- Header -->
+    <header class="bg-orange-400 text-white p-4 fixed top-0 left-0 w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="text-2xl font-bold">
+                <a href="#">Full Frimac ⛽</a>
+            </div>
+
+            <!-- Navigation for large screens -->
+            <nav class="hidden md:flex space-x-6 ">
+                <a href="#" class="hover:bg-orange-500 p-2 rounded">Inicio</a>
+                <a href="#" class="hover:bg-orange-500 p-2 rounded">Acerca de</a>
+                <a href="#" class="hover:bg-orange-500 p-2 rounded">Servicios</a>
+                <a href="#" class="hover:bg-orange-500 p-2 rounded">Contacto</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <nav id="mobile-menu" class="hidden md:hidden">
+            <a href="#" class="block py-2 px-4 text-white hover:bg-orange-500 rounded">Inicio</a>
+            <a href="#" class="block py-2 px-4 text-white hover:bg-orange-500 rounded">Acerca de</a>
+            <a href="#" class="block py-2 px-4 text-white hover:bg-orange-500 rounded">Servicios</a>
+            <a href="#" class="block py-2 px-4 text-white hover:bg-orange-500 rounded">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold mb-4">Contenido principal</h1>
+        <p>Aquí va el contenido de la página. Este texto está aquí para simular el desplazamiento en la página.</p>
+        <div class="h-96 bg-gray-100 mt-6">Espacio para simular scroll.</div>
+    </main>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
