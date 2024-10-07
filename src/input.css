@@ -171,20 +171,21 @@ body {
   transition: 0.2s;
 }
 .regresar__home{
-  background-color: var(--secondary__color);
-  color: var(--principal__color);
-  border-radius: 20px;
+  background-color: var(--Button__color);
+  color: var(--secondary__color);
+  border-radius: 10px;
   border: none;
-  padding: 10px 15px;
+  padding: 15px 25px;
   cursor: pointer;
   margin-top: 10px;
   box-shadow: 0 2px 5px var(--color__gray);
+  transition: 0.2s;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
 }
 .regresar__home:hover{
-  background-color: var(--principal__color);
-  color: var(--secondary__color);
+  background-color: var(--secondary__color);
+  color: var(--principal__color);
 }
 .form input[type="submit"]:hover {
   background-color: var(--secondary__color);
@@ -204,6 +205,30 @@ body {
   min-height: 100%;
   z-index: -10000; /* Para que el video esté detrás del contenido */
 }
+/* Aplicar flexbox y dirección de columna por defecto */
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Espaciado vertical entre los elementos (equivale a `space-y-4` en Tailwind) */
+}
+
+/* En pantallas pequeñas y superiores, cambiar a dirección de fila */
+@media (min-width: 640px) {
+  .buttons-container {
+      flex-direction: row;
+      gap: 0; /* Eliminar el espaciado vertical en pantallas más grandes */
+  }
+
+  /* Añadir espaciado horizontal entre los elementos (equivale a `space-x-4` en Tailwind) */
+  .buttons-container > * {
+      margin-right: 16px;
+  }
+
+  /* Eliminar el margen derecho del último elemento para que no afecte el espaciado total */
+  .buttons-container > *:last-child {
+      margin-right: 0;
+  }
+}
 
 /* Añade estos estilos a tu archivo CSS */
 input.error {
@@ -219,7 +244,11 @@ small {
     margin-top: 5px;
     display: block;
 }
-
+.table-container {
+  overflow-x: auto;
+  max-height: 400px; 
+  width: 100%;
+}
 
 /*RESPONSIVE FORM*/
 

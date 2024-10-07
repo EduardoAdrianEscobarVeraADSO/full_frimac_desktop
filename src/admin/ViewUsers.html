@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion de usuarios</title>
+    <title>Gestión de Usuarios</title>
     <link href="../output.css" rel="stylesheet">
     <style>
-         .table-container {
+        .table-container {
             overflow-x: auto;
-            max-height: 400px; 
+            max-height: 400px;
             width: 100%;
         }
     </style>
 </head>
 
-<body class="pt-16"> 
+<body class="pt-16">
 
     <!-- Header -->
     <header class="bg-orange-400 text-white p-4 fixed top-0 left-0 w-full z-10">
@@ -56,147 +56,40 @@
 
     <!-- Main content -->
     <main class="container mx-auto p-4 ">
-        <h1 class="text-4xl font-bold mb-4 align-middle">Gestion de usuarios</h1>
-        <!-- component -->
+        <h1 class="text-4xl font-bold mb-4 align-middle">Gestión de Usuarios</h1>
+        <!-- Botón para agregar un nuevo usuario -->
+        <button id="open-add-modal" class="mb-4 text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            Crear un nuevo usuario
+        </button>
+
+        <!-- Tabla de usuarios -->
         <div class="text-gray-900 bg-gray-200 rounded-lg mb-4">
-          
             <div class="px-3 py-4 flex justify-center">
                 <div class="table-container">
                     <table class="w-full text-md bg-white shadow-md rounded mb-4">
-                        <tbody>
+                        <thead>
                             <tr class="border-b">
                                 <th class="text-left p-3 px-5">Nombre</th>
                                 <th class="text-left p-3 px-5">Correo</th>
                                 <th class="text-left p-3 px-5">Rol</th>
                                 <th></th>
                             </tr>
+                        </thead>
+                        <tbody>
+                            
                             <tr class="border-b hover:bg-orange-100 bg-gray-100">
-                                <td class="p-3 px-5"><a class="bg-transparent">Username</a></td>
-                                <td class="p-3 px-5"><a class="bg-transparent">userEmail</a></td>
+                                <td class="p-3 px-5">Juan Pérez</td>
+                                <td class="p-3 px-5">juan.perez@example.com</td>
                                 <td class="p-3 px-5">
-                                    <select value="user.role" class="bg-transparent">
-                                        <option value="user">Conductor</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="admin">Analista</option>
+                                    <select class="bg-transparent">
+                                        <option value="conductor">Conductor</option>
+                                        <option value="jefe">Jefe</option>
+                                        <option value="analista">Analista</option>
                                     </select>
                                 </td>
-                                <td class="p-3 px-5 flex justify-end"><button type="button"
-                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</button><button
-                                        type="button"
-                                        class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Deshabilitar</button>
-                                </td>
-                            </tr>
-                            <tr class="border-b hover:bg-orange-100">
-                                <td class="p-3 px-5"><a class="bg-transparent">Username</a></td>
-                                <td class="p-3 px-5"><a class="bg-transparent">userEmail</a></td>
-                                <td class="p-3 px-5">
-                                    <select value="user.role" class="bg-transparent">
-                                        <option value="user">Conductor</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="admin">Analista</option>
-                                    </select>
-                                </td>
-                                <td class="p-3 px-5 flex justify-end"><button type="button"
-                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</button><button
-                                        type="button"
-                                        class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Deshabilitar</button>
-                                </td>
-                            </tr>
-    
-                            <tr class="border-b hover:bg-orange-100">
-                                <td class="p-3 px-5"><a class="bg-transparent">Username</a></td>
-                                <td class="p-3 px-5"><a class="bg-transparent">userEmail</a></td>
-                                <td class="p-3 px-5">
-                                    <select value="user.role" class="bg-transparent">
-                                        <option value="user">Conductor</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="admin">Analista</option>
-                                    </select>
-                                </td>
-                                <td class="p-3 px-5 flex justify-end"><button type="button"
-                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</button><button
-                                        type="button"
-                                        class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Deshabilitar</button>
-                                </td>
-                            </tr>
-                            <tr class="border-b hover:bg-orange-100 bg-gray-100">
-                                <td class="p-3 px-5"><a class="bg-transparent">Username</a></td>
-                                <td class="p-3 px-5"><a class="bg-transparent">userEmail</a></td>
-                                <td class="p-3 px-5">
-                                    <select value="user.role" class="bg-transparent">
-                                        <option value="user">Conductor</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="admin">Analista</option>
-                                    </select>
-                                </td>
-                                <td class="p-3 px-5 flex justify-end"><button type="button"
-                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</button><button
-                                        type="button"
-                                        class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Deshabilitar</button>
-                                </td>
-                            </tr>
-                            <tr class="border-b hover:bg-orange-100">
-                                <td class="p-3 px-5"><a class="bg-transparent">Username</a></td>
-                                <td class="p-3 px-5"><a class="bg-transparent">userEmail</a></td>
-                                <td class="p-3 px-5">
-                                    <select value="user.role" class="bg-transparent">
-                                        <option value="user">Conductor</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="admin">Analista</option>
-                                    </select>
-                                </td>
-                                <td class="p-3 px-5 flex justify-end"><button type="button"
-                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</button><button
-                                        type="button"
-                                        class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Deshabilitar</button>
-                                </td>
-                            </tr>
-                            <tr class="border-b hover:bg-orange-100 bg-gray-100">
-                                <td class="p-3 px-5"><a class="bg-transparent">Username</a></td>
-                                <td class="p-3 px-5"><a class="bg-transparent">userEmail</a></td>
-                                <td class="p-3 px-5">
-                                    <select value="user.role" class="bg-transparent">
-                                        <option value="user">Conductor</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="admin">Analista</option>
-                                    </select>
-                                </td>
-                                <td class="p-3 px-5 flex justify-end"><button type="button"
-                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</button><button
-                                        type="button"
-                                        class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Deshabilitar</button>
-                                </td>
-                            </tr>
-                            <tr class="border-b hover:bg-orange-100">
-                                <td class="p-3 px-5"><a class="bg-transparent">Username</a></td>
-                                <td class="p-3 px-5"><a class="bg-transparent">userEmail</a></td>
-                                <td class="p-3 px-5">
-                                    <select value="user.role" class="bg-transparent">
-                                        <option value="user">Conductor</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="admin">Analista</option>
-                                    </select>
-                                </td>
-                                <td class="p-3 px-5 flex justify-end"><button type="button"
-                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</button><button
-                                        type="button"
-                                        class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Deshabilitar</button>
-                                </td>
-                            </tr>
-                            <tr class="border-b hover:bg-orange-100">
-                                <td class="p-3 px-5"><a class="bg-transparent">Username</a></td>
-                                <td class="p-3 px-5"><a class="bg-transparent">userEmail</a></td>
-                                <td class="p-3 px-5">
-                                    <select value="user.role" class="bg-transparent">
-                                        <option value="user">Conductor</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="admin">Analista</option>
-                                    </select>
-                                </td>
-                                <td class="p-3 px-5 flex justify-end"><button type="button"
-                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</button><button
-                                        type="button"
-                                        class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Deshabilitar</button>
+                                <td class="p-3 px-5 flex justify-end">
+                                    <button type="button" class="edit-btn mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded">Editar</button>
+                                    <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded">Deshabilitar</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -204,15 +97,149 @@
                 </div>
             </div>
         </div>
-        <a type="submit" class="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800 mt-20" href="RegistrarTanqueo.html">Crear un nuevo reporte</a>
     </main>
 
+    <!-- Modal para Agregar Usuario -->
+    <div id="add-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden border rounded-md">
+        <div class="bg-white rounded-lg w-11/12 md:w-1/2 lg:w-1/3 p-6 relative">
+            <button id="close-add-modal" class="absolute top-1 right-1 text-gray-500 hover:text-gray-700 bg-red-600 p-1 rounded-full">&times;</button>
+            <h2 class="text-2xl font-bold mb-4">Agregar Nuevo Usuario</h2>
+            <form id="add-user-form">
+                <div class="mb-4">
+                    <label class="block text-gray-700">Nombre Completo</label>
+                    <input type="text" name="username" id="add_username" class="w-full px-3 py-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Correo Electrónico</label>
+                    <input type="email" name="email" id="add_email" class="w-full px-3 py-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Número de Teléfono</label>
+                    <input type="text" name="phone_number" id="add_phone_number" class="w-full px-3 py-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Número de Identificación</label>
+                    <input type="text" name="user_id" id="add_user_id" class="w-full px-3 py-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Rol</label>
+                    <select name="role" id="add_role" class="w-full px-3 py-2 border rounded" required>
+                        <option value="conductor">Conductor</option>
+                        <option value="jefe">Jefe</option>
+                        <option value="analista">Analista</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-orange-700 text-white py-2 rounded">Agregar Usuario</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Editar Usuario -->
+    <div id="edit-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white rounded-lg w-11/12 md:w-1/2 lg:w-1/3 p-6 relative">
+            <button id="close-edit-modal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 bg-red-600 p-1 rounded-full">&times;</button>
+            <h2 class="text-2xl font-bold mb-4">Editar Usuario</h2>
+            <form id="edit-user-form">
+                <input type="hidden" id="edit_user_id_hidden">
+                <div class="mb-4">
+                    <label class="block text-gray-700">Nombre Completo</label>
+                    <input type="text" name="username" id="edit_username" class="w-full px-3 py-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Correo Electrónico</label>
+                    <input type="email" name="email" id="edit_email" class="w-full px-3 py-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Número de Teléfono</label>
+                    <input type="text" name="phone_number" id="edit_phone_number" class="w-full px-3 py-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Número de Identificación</label>
+                    <input type="text" name="user_id" id="edit_user_id" class="w-full px-3 py-2 border rounded" required readonly>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Rol</label>
+                    <select name="role" id="edit_role" class="w-full px-3 py-2 border rounded" required>
+                        <option value="conductor">Conductor</option>
+                        <option value="jefe">Jefe</option>
+                        <option value="analista">Analista</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-orange-700 text-white py-2 rounded">Agregar Usuario</button>
+            </form>
+        </div>
+    </div>
+
     <script>
+        // Manejo del menú móvil
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Manejo del modal de agregar usuario
+        const openAddModalBtn = document.getElementById('open-add-modal');
+        const addModal = document.getElementById('add-modal');
+        const closeAddModalBtn = document.getElementById('close-add-modal');
+
+        openAddModalBtn.addEventListener('click', () => {
+            addModal.classList.remove('hidden');
+        });
+
+        closeAddModalBtn.addEventListener('click', () => {
+            addModal.classList.add('hidden');
+        });
+
+        // Manejo del modal de editar usuario
+        const editModal = document.getElementById('edit-modal');
+        const closeEditModalBtn = document.getElementById('close-edit-modal');
+        const editButtons = document.querySelectorAll('.edit-btn');
+
+        editButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Obtener la fila del usuario
+                const row = e.target.closest('tr');
+                const nombre = row.children[0].textContent;
+                const correo = row.children[1].textContent;
+                const rol = row.children[2].querySelector('select').value;
+                const userId = row.querySelector('#user_id') ? row.querySelector('#user_id').value : '1142714091'; // Ajusta según tus datos
+
+                // Rellenar el formulario de edición
+                document.getElementById('edit_username').value = nombre;
+                document.getElementById('edit_email').value = correo;
+                document.getElementById('edit_role').value = rol;
+                document.getElementById('edit_user_id').value = userId;
+                document.getElementById('edit_user_id_hidden').value = userId;
+
+                // Mostrar el modal de edición
+                editModal.classList.remove('hidden');
+            });
+        });
+
+        closeEditModalBtn.addEventListener('click', () => {
+            editModal.classList.add('hidden');
+        });
+
+        // Manejo del envío del formulario de agregar usuario
+        const addUserForm = document.getElementById('add-user-form');
+        addUserForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Aquí puedes agregar la lógica para enviar los datos al servidor
+            // Por ahora, simplemente cerramos el modal
+            addModal.classList.add('hidden');
+            alert('Usuario agregado exitosamente');
+        });
+
+        // Manejo del envío del formulario de editar usuario
+        const editUserForm = document.getElementById('edit-user-form');
+        editUserForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Aquí puedes agregar la lógica para actualizar los datos en el servidor
+            // Por ahora, simplemente cerramos el modal
+            editModal.classList.add('hidden');
+            alert('Usuario actualizado exitosamente');
         });
     </script>
 
